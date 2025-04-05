@@ -6,7 +6,7 @@ const quizData = [
             {
                 id: 1,
                 text: "What is the one thing Chandu Likes to do",
-                options: ["Working", "Learning", "Movie"],
+                options: ["Painting", "Learning", "Movie"],
                 correctAnswer: "Movie"
             },
             {
