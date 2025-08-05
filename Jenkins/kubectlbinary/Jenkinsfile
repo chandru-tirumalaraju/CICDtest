@@ -6,9 +6,15 @@ pipeline {
     }
   }
   stages {
+    stage('Checkout') {
+      steps {
+        checkout scm
+      }
+    }
     stage('Apply Manifests') {
       steps {
-        sh 'kubectl apply -f ./k8-manifests/'
+	    sh 'ls -la'
+        sh 'kubectl apply -f k8-manifests/'
       }
     }
     stage('Get Pod Details') {
