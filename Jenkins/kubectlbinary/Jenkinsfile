@@ -11,6 +11,11 @@ pipeline {
         checkout scm
       }
     }*/
+    stage('Update Kube Config'){
+      steps {
+        sh 'aws eks update-kubeconfig --region us-east-1 --name ekspractice'
+      }
+    }
     stage('Apply Manifests') {
       steps {
 	    sh 'ls -la'
