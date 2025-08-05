@@ -2,7 +2,7 @@ pipeline {
   agent {
     docker {
       image 'bitnami/kubectl:latest'
-      args '-v /root/.kube:/root/.kube' // Mount kubeconfig if needed
+      args '--entrypoint="" -v /root/.kube:/root/.kube' // Mount kubeconfig if needed
     }
   }
   stages {
