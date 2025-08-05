@@ -1,12 +1,19 @@
 pipeline {
   agent {
-    docker { image 'alpine:latest' }
+    docker {
+      image 'bitnami/kubectl:latest'
+      args '-v /root/.kube:/root/.kube' // Mount kubeconfig if needed
+    }
   }
   stages {
-    stage('Hello') {
+    stage('Apply Manifests') {
       steps {
-        echo 'Hello World'
-        sh 'echo "Hello World from inside Docker!"'
+        sh 'kubectl apply -f k8-manifests/'
+      }
+    }
+    stage('Get Pod Details') {
+      steps {
+        sh 'kubectl get pods -o wide'
       }
     }
   }
