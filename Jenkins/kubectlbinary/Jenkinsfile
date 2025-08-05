@@ -8,7 +8,7 @@ pipeline {
   stages {
     stage('Apply Manifests') {
       steps {
-        sh 'kubectl apply -f k8-manifests/'
+        sh 'kubectl apply -f ./k8-manifests/'
       }
     }
     stage('Get Pod Details') {
